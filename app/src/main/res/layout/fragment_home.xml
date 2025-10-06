@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@color/material_dynamic_primary80">
+    android:background="@color/material_dynamic_primary80"
+    tools:context="HomeFragment">
 
-
-    <EditText
+<EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
