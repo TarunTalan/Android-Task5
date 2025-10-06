@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Solid color for the background of the text (optional, can be transparent) -->
+    <solid android:color="@android:color/transparent" />
+    <stroke
+        android:width="2dp"
+        android:color="#1F41BB"
+        />
+    <corners android:radius="9dp" />
+    <solid android:color="#F1F4FF" />
+</shape>
