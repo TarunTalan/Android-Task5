@@ -3,33 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@color/material_dynamic_primary80"
-    tools:context="HomeFragment">
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    tools:context=".HomeFragment">
 
-<EditText
-        android:id="@+id/editText"
+
+    <EditText
+        android:id="@+id/usernameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/outline"
-        android:ems="15"
         android:hint="Username"
         android:paddingHorizontal="15dp"
         android:paddingVertical="15dp"
         android:textColor="#000"
         android:textColorHint="#AD131316"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
         app:layout_constraintWidth_percent="0.86" />
 
     <androidx.appcompat.widget.AppCompatButton
-    android:id="@+id/textView2"
+        android:id="@+id/profileButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/border"
         android:backgroundTint="#1F41BB"
         android:fontFamily="sans-serif-medium"
@@ -39,39 +39,103 @@
         android:textColor="#FFFFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline1"
-        app:layout_constraintWidth_percent="0.46" />
+        app:layout_constraintBottom_toTopOf="@+id/submissionButton"
+        app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"
+        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatButton
-
-    android:id="@+id/textView3"
+        android:id="@+id/badgesButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:background="@drawable/border"
         android:backgroundTint="#1F41BB"
         android:fontFamily="sans-serif-medium"
         android:paddingVertical="8dp"
+        android:text="Badges"
         android:textAlignment="center"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/solvedButton"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"
+        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submissionButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#1F41BB"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="8dp"
         android:text="Submissions"
-        app:layout_constraintWidth_percent="0.46"
+        android:textAlignment="center"
         android:textColor="#FFFFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/guideline1" />
+        app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"
+        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
+        app:layout_constraintTop_toBottomOf="@+id/profileButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/solvedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#1F41BB"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="8dp"
+        android:text="Solved"
+        android:textAlignment="center"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"
+        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/badgesButton" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline1"
+        android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"
-         />
+        app:layout_constraintGuide_percent="0.3" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center_vertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center_vertical3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
