@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemSubmissionsBinding
 
-class SubmissionsAdapter(private val submissions: List<Submission>) :
+class SubmissionsAdapter(private var submissions: List<Submission>) :
     RecyclerView.Adapter<SubmissionsAdapter.SubmissionViewHolder>() {
 
     class SubmissionViewHolder(val binding: ItemSubmissionsBinding) :
@@ -40,6 +40,9 @@ class SubmissionsAdapter(private val submissions: List<Submission>) :
         holder.bind(submission)
     }
 
-
     override fun getItemCount() = submissions.size
+    fun updateData(newSubmissions: List<Submission>) {
+        submissions = newSubmissions
+        notifyDataSetChanged()
+    }
 }

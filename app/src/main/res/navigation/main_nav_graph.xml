@@ -28,7 +28,7 @@
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="CX3cUa6gI6" />
+            android:defaultValue="TarunTalan" />
     </fragment>
     <fragment
         android:id="@+id/submissionsFragment"

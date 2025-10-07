@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.myapplication.api.RetrofitInstance
 import com.example.myapplication.databinding.FragmentProfileBinding
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
