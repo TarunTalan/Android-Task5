@@ -58,6 +58,17 @@ class HomeFragment : Fragment() {
             }
 
         }
+        binding.badgesButton.setOnClickListener {
+            val username = binding.usernameTextView.text.toString().trim()
+            if (username.isNotEmpty()) {
+                val action = HomeFragmentDirections.actionHomeFragmentToBadgesFragment(username)
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(requireContext(), "Please enter a username", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        }
 
     }
 }

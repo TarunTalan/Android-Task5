@@ -12,7 +12,7 @@ data class UserProfileData(
     val company: Any,
     @SerializedName("country")
     val country: String,
-    @SerializedName("github")
+    @SerializedName("gitHub")
     val gitHub: String,
     val linkedIN: Any,
     @SerializedName("name")

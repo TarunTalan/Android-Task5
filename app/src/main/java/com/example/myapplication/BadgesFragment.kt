@@ -11,24 +11,23 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.api.RetrofitInstance
-import com.example.myapplication.databinding.FragmentSubmissionsBinding
+import com.example.myapplication.databinding.FragmentBadgesBinding
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
-import kotlin.getValue
 
-class SubmissionsFragment : Fragment() {
+class BadgesFragment : Fragment() {
 
-    private var _binding: FragmentSubmissionsBinding? = null
+    private var _binding: FragmentBadgesBinding? = null
     private val binding get() = _binding!!
-    private val args: SubmissionsFragmentArgs by navArgs()
-    private lateinit var submissionsAdapter: SubmissionsAdapter
+    private val args: BadgesFragmentArgs by navArgs()
+    private lateinit var badgesAdapter: BadgesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSubmissionsBinding.inflate(inflater, container, false)
+        _binding = FragmentBadgesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,28 +38,29 @@ class SubmissionsFragment : Fragment() {
 
         val username = args.username
         if (username.isNotEmpty()) {
-            fetchSubmissions(username)
+            fetchBadges(username)
         } else {
             Toast.makeText(requireContext(), "Username not provided.", Toast.LENGTH_SHORT).show()
         }
     }
     private fun setupRecyclerView() {
-        submissionsAdapter = SubmissionsAdapter(emptyList())
-        binding.submissionsRecyclerView.apply {
+        badgesAdapter = BadgesAdapter(emptyList())
+        binding.badgesRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = submissionsAdapter
+            adapter = badgesAdapter
         }
     }
 
-    private fun fetchSubmissions(username: String) {
+    private fun fetchBadges(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
-            binding.submissionsRecyclerView.isVisible = false
+            binding.badgesRecyclerView.isVisible = false
 
             try {
-                val response = RetrofitInstance.apiService.getUserSubmissions(username)
-                val submissionsList = response.submission
-                submissionsAdapter.updateData(submissionsList)
+                val userBadgesData = RetrofitInstance.apiService.getUserBadges(username)
+                binding.badgesCountTextView.text = userBadgesData.badges.size.toString()
+                val response = RetrofitInstance.apiService.getUserBadges(username)
+                badgesAdapter.updateData(userBadgesData.badges)
 
             } catch (e: HttpException) {
                 Toast.makeText(requireContext(), "Error: ${e.message()}", Toast.LENGTH_LONG).show()
@@ -72,7 +72,7 @@ class SubmissionsFragment : Fragment() {
                 ).show()
             } finally {
                 binding.progressBar.isVisible = false
-                binding.submissionsRecyclerView.isVisible = true
+                binding.badgesRecyclerView.isVisible = true
             }
         }
     }
