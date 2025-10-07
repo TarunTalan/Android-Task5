@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.data.Submission
 import com.example.myapplication.databinding.ItemSubmissionsBinding
 
 class SubmissionsAdapter(private var submissions: List<Submission>) :

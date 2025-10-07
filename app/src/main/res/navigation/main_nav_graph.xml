@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_submissionsFragment"
             app:destination="@id/submissionsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_solvedFragment"
+            app:destination="@id/solvedFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -35,6 +38,17 @@
         android:name="com.example.myapplication.SubmissionsFragment"
         android:label="Submissions"
         tools:layout="@layout/fragment_submissions">
+
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="TarunTalan" />
+    </fragment>
+    <fragment
+        android:id="@+id/solvedFragment"
+        android:name="com.example.myapplication.SolvedFragment"
+        android:label="Solved"
+        tools:layout="@layout/fragment_solved">
 
         <argument
             android:name="username"

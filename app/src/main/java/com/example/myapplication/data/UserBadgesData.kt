@@ -1,4 +1,6 @@
-package com.example.myapplication
+package com.example.myapplication.data
+
+import com.example.myapplication.data.UpcomingBadge
 
 data class UserBadgesData(
     val activeBadge: Any,
