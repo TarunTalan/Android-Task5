@@ -36,5 +36,17 @@ class HomeFragment : Fragment() {
                     .show()
             }
         }
+        binding.submissionsButton.setOnClickListener {
+            val username = binding.usernameTextView.text.toString().trim()
+            if (username.isNotEmpty()) {
+                val action = HomeFragmentDirections.actionHomeFragmentToSubmissionsFragment()
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(requireContext(), "Please enter a username", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        }
+
     }
 }

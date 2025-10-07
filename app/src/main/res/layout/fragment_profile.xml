@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="#FFFF"
-    tools:context="ProfileFragment">
+    tools:context=".ProfileFragment">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -35,7 +34,7 @@
         android:paddingStart="15dp"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/guideline_startHoriz"
         tools:text="User Name" />
@@ -49,10 +48,10 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/countryTextView"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        tools:text="Ranking: 123,456" />
+        tools:text="Rank: 123,456" />
 
     <TextView
         android:id="@+id/countryTextView"
@@ -63,7 +62,7 @@
         android:textColor="?android:attr/textColorSecondary"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/avatarImageView"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical"
         tools:text="India" />
 
@@ -74,7 +73,7 @@
         android:layout_marginTop="10dp"
         android:text="About "
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/countryTextView" />
 
@@ -85,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/aboutTextView"
         tools:text="Reputation: 5" />
@@ -96,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/reputationTextView"
         tools:text="DOB" />
@@ -107,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/dobTextView"
         tools:text="GitHub" />
@@ -117,14 +116,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.1" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center_vertical"
@@ -138,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

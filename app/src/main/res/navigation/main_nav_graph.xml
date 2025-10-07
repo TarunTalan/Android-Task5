@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_submissionsFragment"
+            app:destination="@id/submissionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -26,6 +29,17 @@
             android:name="username"
             app:argType="string"
             android:defaultValue="CX3cUa6gI6" />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionsFragment"
+        android:name="com.example.myapplication.SubmissionsFragment"
+        android:label="Submissions"
+        tools:layout="@layout/fragment_submissions">
+
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="TarunTalan" />
 
     </fragment>
 

@@ -39,7 +39,7 @@
         android:textColor="#FFFFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/submissionButton"
+        app:layout_constraintBottom_toTopOf="@+id/submissionsButton"
         app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
         app:layout_constraintTop_toBottomOf="@id/guideline_top"
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submissionButton"
+        android:id="@+id/submissionsButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
