@@ -41,6 +41,7 @@ class ProfileFragment : Fragment() {
     private fun fetchProfile(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
+            binding.profileContentGroup.isVisible = false
 
             try {
                 val profile = RetrofitInstance.apiService.getUserProfile(username)
@@ -65,6 +66,7 @@ class ProfileFragment : Fragment() {
                 Toast.makeText(requireContext(), "Network error, please check your connection.", Toast.LENGTH_LONG).show()
             } finally {
                 binding.progressBar.isVisible = false
+                binding.profileContentGroup.isVisible = true
             }
         }
     }

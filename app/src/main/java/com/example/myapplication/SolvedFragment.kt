@@ -41,6 +41,7 @@ class SolvedFragment : Fragment() {
     private fun fetchSolved(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
+            binding.solvedStatsCard.isVisible = false
 
             try {
                 val solved = RetrofitInstance.apiService.getUserSolvedStats(username)
@@ -56,6 +57,7 @@ class SolvedFragment : Fragment() {
                 Toast.makeText(requireContext(), "Network error, please check your connection.", Toast.LENGTH_LONG).show()
             } finally {
                 binding.progressBar.isVisible = false
+                binding.solvedStatsCard.isVisible = true
             }
         }
     }

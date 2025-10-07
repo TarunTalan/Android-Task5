@@ -64,7 +64,6 @@
                         android:textAppearance="?attr/textAppearanceBody2" />
                 </LinearLayout>
 
-                <!-- Medium Problems Count -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -54,12 +54,12 @@ class BadgesFragment : Fragment() {
     private fun fetchBadges(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
+            binding.badgesCountCard.isVisible = false
             binding.badgesRecyclerView.isVisible = false
 
             try {
                 val userBadgesData = RetrofitInstance.apiService.getUserBadges(username)
                 binding.badgesCountTextView.text = userBadgesData.badges.size.toString()
-                val response = RetrofitInstance.apiService.getUserBadges(username)
                 badgesAdapter.updateData(userBadgesData.badges)
 
             } catch (e: HttpException) {
@@ -72,6 +72,7 @@ class BadgesFragment : Fragment() {
                 ).show()
             } finally {
                 binding.progressBar.isVisible = false
+                binding.badgesCountCard.isVisible = true
                 binding.badgesRecyclerView.isVisible = true
             }
         }

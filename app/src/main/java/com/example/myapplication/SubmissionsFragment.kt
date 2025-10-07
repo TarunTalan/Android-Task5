@@ -55,12 +55,12 @@ class SubmissionsFragment : Fragment() {
     private fun fetchSubmissions(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
+            binding.submissionsCountCard.isVisible = false
             binding.submissionsRecyclerView.isVisible = false
-
             try {
                 val response = RetrofitInstance.apiService.getUserSubmissions(username)
-                val submissionsList = response.submission
-                submissionsAdapter.updateData(submissionsList)
+                binding.submissionsCountTextView.text = response.count.toString()
+                submissionsAdapter.updateData(response.submission)
 
             } catch (e: HttpException) {
                 Toast.makeText(requireContext(), "Error: ${e.message()}", Toast.LENGTH_LONG).show()
@@ -72,6 +72,7 @@ class SubmissionsFragment : Fragment() {
                 ).show()
             } finally {
                 binding.progressBar.isVisible = false
+                binding.submissionsCountCard.isVisible = true
                 binding.submissionsRecyclerView.isVisible = true
             }
         }
