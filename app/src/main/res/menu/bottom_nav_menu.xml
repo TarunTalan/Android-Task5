@@ -4,14 +4,14 @@
     <item
         android:id="@+id/badgesFragment"
         android:icon="@drawable/menu"
-        android:title="recent" />
+        android:title="Recent" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/home"
-        android:title="home" />
+        android:title="Home" />
     <item
         android:id="@+id/solvedFragment"
         android:icon="@drawable/nav_drawer"
-        android:title="nav_drawer" />
+        android:title="Menu" />
 
 </menu>

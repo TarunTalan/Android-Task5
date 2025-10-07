@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyApplication</string>
+    <string name="profile">Profile</string>
+    <string name="submissions">Submissions</string>
+    <string name="badges">Badges</string>
+    <string name="solved">Solved</string>
+    <string name="navigation_drawer_open">Start the drawer</string>
+    <string name="navigation_drawer_close">close the drawer</string>
 </resources>
