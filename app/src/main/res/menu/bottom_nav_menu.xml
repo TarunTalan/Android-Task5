@@ -4,7 +4,7 @@
     <item
         android:id="@+id/recent"
         android:icon="@drawable/arrow_back"
-        android:title="Recent" />
+        android:title="Back" />
     <item
         android:id="@+id/home"
         android:icon="@drawable/home"

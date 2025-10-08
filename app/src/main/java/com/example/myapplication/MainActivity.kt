@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -55,15 +56,23 @@ class MainActivity : AppCompatActivity() {
                     }
                     true
                 }
-                R.id.home-> {
-                    navController.navigate(R.id.homeFragment)
+
+                R.id.home -> {
+                    val navOptions = NavOptions.Builder()
+                        .setPopUpTo(navController.graph.startDestinationId, true)
+                        .setLaunchSingleTop(true).build()
+                    navController.navigate(R.id.homeFragment, null, navOptions)
                     true
                 }
 
-                else -> {
-                    navController.popBackStack()
+                R.id.recent -> {
+                    if (navController.previousBackStackEntry != null) {
+                        navController.popBackStack()
+                    }
                     true
                 }
+
+                else -> NavigationUI.onNavDestinationSelected(menuItem, navController)
             }
         }
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
