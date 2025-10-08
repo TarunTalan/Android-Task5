@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         drawerLayout = binding.drawerLayout
         toggle = ActionBarDrawerToggle(
@@ -42,6 +43,28 @@ class MainActivity : AppCompatActivity() {
         binding.drawerNavView.setNavigationItemSelectedListener { menuItem ->
             drawerLayout.closeDrawer(GravityCompat.START)
             NavigationUI.onNavDestinationSelected(menuItem, navController)
+        }
+
+        binding.bottomNavView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu -> {
+                    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                        drawerLayout.closeDrawer(GravityCompat.START)
+                    } else {
+                        drawerLayout.openDrawer(GravityCompat.START)
+                    }
+                    true
+                }
+                R.id.home-> {
+                    navController.navigate(R.id.homeFragment)
+                    true
+                }
+
+                else -> {
+                    navController.popBackStack()
+                    true
+                }
+            }
         }
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

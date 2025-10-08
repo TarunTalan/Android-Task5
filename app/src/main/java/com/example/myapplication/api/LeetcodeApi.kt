@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface LeetcodeApi {
     @GET("{username}")
     suspend fun getUserProfile(@Path("username") username: String): UserProfileData
-    @GET("{username}/submission?limit=30")
+    @GET("{username}/submission")
     suspend fun getUserSubmissions(@Path("username") username: String): SubmissionsData
     @GET("{username}/solved")
     suspend fun getUserSolvedStats(@Path("username") username: String): SolvedData
