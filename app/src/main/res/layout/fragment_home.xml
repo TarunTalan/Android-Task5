@@ -8,8 +8,68 @@
     tools:context=".HomeFragment">
 
 
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/badgesButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:background="@drawable/border"-->
+<!--        android:backgroundTint="#1F41BB"-->
+<!--        android:fontFamily="sans-serif-medium"-->
+<!--        android:paddingVertical="8dp"-->
+<!--        android:text="Badges"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#FFFFFFFF"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/solvedButton"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"-->
+<!--        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/guideline_top"-->
+<!--        app:layout_constraintVertical_chainStyle="packed" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/submissionsButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:background="@drawable/border"-->
+<!--        android:backgroundTint="#1F41BB"-->
+<!--        android:fontFamily="sans-serif-medium"-->
+<!--        android:paddingVertical="8dp"-->
+<!--        android:text="Submissions"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#FFFFFFFF"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/profileButton" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/solvedButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:background="@drawable/border"-->
+<!--        android:backgroundTint="#1F41BB"-->
+<!--        android:fontFamily="sans-serif-medium"-->
+<!--        android:paddingVertical="8dp"-->
+<!--        android:text="Solved"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#FFFFFFFF"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"-->
+<!--        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/badgesButton" />-->
+
     <EditText
-        android:id="@+id/usernameTextView"
+        android:id="@+id/usernameEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/outline"
@@ -19,123 +79,73 @@
         android:textColor="#000"
         android:textColorHint="#AD131316"
         android:textSize="19sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.86" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/profileButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/border"
-        android:backgroundTint="#1F41BB"
-        android:fontFamily="sans-serif-medium"
-        android:paddingVertical="8dp"
-        android:text="Profile"
-        android:textAlignment="center"
-        android:textColor="#FFFFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/submissionsButton"
-        app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"
-        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
-        app:layout_constraintTop_toBottomOf="@id/guideline_top"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/badgesButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/border"
-        android:backgroundTint="#1F41BB"
-        android:fontFamily="sans-serif-medium"
-        android:paddingVertical="8dp"
-        android:text="Badges"
-        android:textAlignment="center"
-        android:textColor="#FFFFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/solvedButton"
         app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"
-        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/guideline_top"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submissionsButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/border"
-        android:backgroundTint="#1F41BB"
-        android:fontFamily="sans-serif-medium"
-        android:paddingVertical="8dp"
-        android:text="Submissions"
-        android:textAlignment="center"
-        android:textColor="#FFFFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline_center_vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
-        app:layout_constraintTop_toBottomOf="@+id/profileButton" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/solvedButton"
+        android:id="@+id/addUserButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/border"
         android:backgroundTint="#1F41BB"
         android:fontFamily="sans-serif-medium"
         android:paddingVertical="8dp"
-        android:text="Solved"
+        android:text="Add User"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="#FFFFFFFF"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"
-        app:layout_constraintStart_toEndOf="@id/guideline_center_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/badgesButton" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/searchFriendButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:backgroundTint="#1F41BB"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="8dp"
+        android:text="@string/Search"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center_vertical2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_center_vertical3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_center_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center_vertical2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.93" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center_vertical3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

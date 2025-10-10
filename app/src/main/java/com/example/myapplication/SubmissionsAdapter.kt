@@ -18,7 +18,6 @@ class SubmissionsAdapter(private var submissions: List<Submission>) :
             binding.languageTextView.text = submission.lang
             binding.timestampTextView.text = submission.timestamp
 
-            val context = binding.root.context
             val statusBackground = when (submission.statusDisplay) {
                 "Accepted" -> R.drawable.status_accepted_bg
                 else -> R.drawable.status_other_bg

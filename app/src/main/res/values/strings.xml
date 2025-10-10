@@ -6,4 +6,6 @@
     <string name="solved">Solved</string>
     <string name="navigation_drawer_open">Start the drawer</string>
     <string name="navigation_drawer_close">close the drawer</string>
+    <string name="User">User</string>
+    <string name="Search">Search Friends</string>
 </resources>

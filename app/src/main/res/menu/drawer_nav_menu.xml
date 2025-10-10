@@ -2,20 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/profileFragment"
+            android:id="@+id/userName"
             android:icon="@drawable/profile"
-            android:title="@string/profile" />
+            android:title="@string/User" />
         <item
-            android:id="@+id/submissionsFragment"
-            android:icon="@drawable/submissions"
-            android:title="@string/submissions" />
-        <item
-            android:id="@+id/badgesFragment"
-            android:icon="@drawable/badge"
-            android:title="@string/badges" />
-        <item
-            android:id="@+id/solvedFragment"
-            android:icon="@drawable/solved"
-            android:title="@string/solved" />
+            android:id="@+id/searchFriend"
+            android:icon="@drawable/icons8_search_24"
+            android:title="@string/Search" />
     </group>
 </menu>

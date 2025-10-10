@@ -32,10 +32,22 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
 
+        <action
+            android:id="@+id/action_profileFragment_to_submissionsFragment"
+            app:destination="@id/submissionsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_solvedFragment"
+            app:destination="@id/solvedFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_badgesFragment"
+            app:destination="@id/badgesFragment" />
+
+
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="Tarun_Talan" />
+            />
     </fragment>
     <fragment
         android:id="@+id/submissionsFragment"
@@ -43,10 +55,20 @@
         android:label="Submissions"
         tools:layout="@layout/fragment_submissions">
 
+        <action
+        android:id="@+id/action_submissionsFragment_to_profileFragment"
+        app:destination="@id/profileFragment" />
+        <action
+        android:id="@+id/action_submissionsFragment_to_solvedFragment"
+        app:destination="@id/solvedFragment" />
+        <action
+        android:id="@+id/action_submissionsFragment_to_badgesFragment"
+        app:destination="@id/badgesFragment" />
+
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="Tarun_Talan" />
+             />
     </fragment>
     <fragment
         android:id="@+id/solvedFragment"
@@ -54,10 +76,20 @@
         android:label="Solved"
         tools:layout="@layout/fragment_solved">
 
+        <action
+            android:id="@+id/action_solvedFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_solvedFragment_to_submissionsFragment"
+            app:destination="@id/submissionsFragment" />
+        <action
+            android:id="@+id/action_solvedFragment_to_badgesFragment"
+            app:destination="@id/badgesFragment" />
+
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="Tarun_Talan" />
+            />
 
     </fragment>
     <fragment
@@ -69,7 +101,7 @@
         <argument
             android:name="username"
             app:argType="string"
-            android:defaultValue="Tarun_Talan" />
+            />
 
     </fragment>
 

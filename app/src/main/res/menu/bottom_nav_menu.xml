@@ -2,16 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/recent"
-        android:icon="@drawable/arrow_back"
-        android:title="Back" />
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profile"
+        android:title="@string/profile" />
     <item
-        android:id="@+id/home"
-        android:icon="@drawable/home"
-        android:title="Home" />
+        android:id="@+id/solvedFragment"
+        android:icon="@drawable/solved"
+        android:title="@string/solved" />
     <item
-        android:id="@+id/menu"
-        android:icon="@drawable/nav_drawer"
-        android:title="Menu" />
+        android:id="@+id/submissionsFragment"
+        android:icon="@drawable/submissions"
+        android:title="@string/submissions" />
+    <item
+        android:id="@+id/badgesFragment"
+        android:icon="@drawable/badge"
+        android:title="@string/badges" />
 
 </menu>

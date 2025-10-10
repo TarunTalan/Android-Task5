@@ -21,8 +21,7 @@ class ProfileFragment : Fragment() {
     private val args: ProfileFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -38,6 +37,7 @@ class ProfileFragment : Fragment() {
             Toast.makeText(requireContext(), "Username not provided", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun fetchProfile(username: String) {
         lifecycleScope.launch {
             binding.progressBar.isVisible = true
@@ -47,23 +47,25 @@ class ProfileFragment : Fragment() {
                 val profile = RetrofitInstance.apiService.getUserProfile(username)
                 binding.nameTextView.text = profile.name
                 binding.rankingTextView.text = "Rank: ${profile.ranking ?: "N/A"}"
-                binding.reputationTextView.text = "Reputation: ${profile.reputation?.toString() ?: "N/A"}"
+                binding.reputationTextView.text =
+                    "Reputation: ${profile.reputation?.toString() ?: "N/A"}"
                 binding.countryTextView.text = profile.country
                 binding.aboutTextView.text = profile.about
                 binding.dobTextView.text = "DOB: ${profile.birthday}"
                 binding.githubTextView.text = "GitHub: ${profile.gitHub}"
-                Glide.with(this@ProfileFragment)
-                    .load(profile.avatar)
-                    .circleCrop()
+                Glide.with(this@ProfileFragment).load(profile.avatar).circleCrop()
                     .placeholder(R.drawable.ic_launcher_foreground)
-                    .error(R.drawable.ic_launcher_background)
-                    .into(binding.avatarImageView)
+                    .error(R.drawable.ic_launcher_background).into(binding.avatarImageView)
 
 
             } catch (e: HttpException) {
                 Toast.makeText(requireContext(), "Error: ${e.message()}", Toast.LENGTH_LONG).show()
             } catch (e: IOException) {
-                Toast.makeText(requireContext(), "Network error, please check your connection.", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Network error, please check your connection.",
+                    Toast.LENGTH_LONG
+                ).show()
             } finally {
                 binding.progressBar.isVisible = false
                 binding.profileContentGroup.isVisible = true
