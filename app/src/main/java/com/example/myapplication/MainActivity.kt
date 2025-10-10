@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -131,21 +132,38 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setupBackButton() {
+
+    private fun setupBackButton() {
         val onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // Check if the drawer is open and close it if it is
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
-                    // If the drawer is not open, perform the default back press action
-                    isEnabled = false
-                    onBackPressedDispatcher.onBackPressed()
-                    isEnabled = true
+                    // The NavController's back stack includes the start destination.
+                    // A size of 2 means there is one screen on top of the start destination.
+                    // We handle the default back press if there's somewhere to go back to.
+                    if (navController.currentBackStack.value.size > 2) {
+                        // If there are more than 2 entries (start + one more screen), navigate back.
+                        navController.popBackStack()
+                    } else {
+                        // Otherwise, we are on the last screen, so confirm exit.
+                        showExitConfirmationDialog()
+                    }
                 }
             }
         }
-        // Add the callback to the activity's dispatcher
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+    }
+
+    private fun showExitConfirmationDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Confirm Exit")
+            .setMessage("Are you sure you want to exit the app?")
+            .setPositiveButton("Yes") { _, _ ->
+                // If "Yes" is clicked, finish the activity to exit the app.
+                finish()
+            }
+            .setNegativeButton("No", null) // If "No" is clicked, do nothing.
+            .show()
     }
 }
