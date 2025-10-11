@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         val navOptions =
             NavOptions.Builder().setLaunchSingleTop(true) // Don't add to stack if already at top
                 .build()
-        if (sharedViewModel.isInitialUserAdded) {
+        if (sharedViewModel.isInitialUserAdded.value == true) {
             binding.addUserButton.isVisible = false
             binding.searchFriendButton.isVisible = true
             binding.searchFriendButton.isEnabled = false
@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
             sharedViewModel.isUserMenuActive = true
             val username = binding.usernameEditText.text.toString()
             if (username.isNotEmpty()) {
-                sharedViewModel.isInitialUserAdded = true
+                sharedViewModel.isInitialUserAdded.value = true
                 sharedViewModel.username.value = username
                 Toast.makeText(requireContext(), "User '$username' added!", Toast.LENGTH_SHORT)
                     .show()

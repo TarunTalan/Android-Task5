@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.firebase.crashlytics.buildtools)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.core.animation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,4 +63,5 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:5.0.5")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
 }

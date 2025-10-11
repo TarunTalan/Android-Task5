@@ -1,7 +1,10 @@
 package com.example.myapplication
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
@@ -14,6 +17,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.example.myapplication.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +36,45 @@ class MainActivity : AppCompatActivity() {
         setupMenuUsernameObserver()
         setupDrawerAndBottomNav()
         setupBackButton()
+        setupBottomNavVisibilityObserver()
+    }
+
+    private fun setupBottomNavVisibilityObserver() {
+        sharedViewModel.isInitialUserAdded.observe(
+            this,
+            androidx.lifecycle.Observer { isUserAdded: Boolean ->
+                if (isUserAdded == true) {
+                    showBottomNav()
+                } else {
+                    hideBottomNav()
+                }
+            })
+    }
+
+
+    private fun showBottomNav() {
+        val bottomNavView = binding.bottomNavView
+        if (bottomNavView.visibility == View.VISIBLE) return
+
+        bottomNavView.apply {
+            alpha = 0f // Start transparent
+            visibility = View.VISIBLE
+            animate().alpha(1f) // Fade in
+                .setDuration(200) // Animation duration
+                .setListener(null)
+        }
+    }
+
+    private fun hideBottomNav() {
+        val bottomNavView = binding.bottomNavView
+        if (bottomNavView.visibility == View.GONE) return
+
+        bottomNavView.animate().alpha(0f).setDuration(30)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    bottomNavView.visibility = View.GONE
+                }
+            })
     }
 
     fun setupNavigation() {
@@ -80,7 +123,8 @@ class MainActivity : AppCompatActivity() {
         binding.drawerNavView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.userName -> {
-                    if (!sharedViewModel.isInitialUserAdded) Toast.makeText(
+                    showBottomNav()
+                    if (sharedViewModel.isInitialUserAdded.value == false) Toast.makeText(
                         this, "Please add a user first!", Toast.LENGTH_SHORT
                     ).show()
                     else {
@@ -98,7 +142,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.searchFriend -> {
-                    if (!sharedViewModel.isInitialUserAdded) Toast.makeText(
+                    hideBottomNav()
+                    if (sharedViewModel.isInitialUserAdded.value == false) Toast.makeText(
                         this, "Please add a user first!", Toast.LENGTH_SHORT
                     ).show()
                     else {
@@ -124,7 +169,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavView.setOnItemSelectedListener { menuItem ->
-            if (!sharedViewModel.isInitialUserAdded) Toast.makeText(
+            if (sharedViewModel.isInitialUserAdded.value == false) Toast.makeText(
                 this, "Please add a user first!", Toast.LENGTH_SHORT
             ).show()
             else {
@@ -172,14 +217,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showExitConfirmationDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("Confirm Exit")
-            .setMessage("Are you sure you want to exit the app?")
-            .setPositiveButton("Yes") { _, _ ->
+        AlertDialog.Builder(this).setTitle("Confirm Exit")
+            .setMessage("Are you sure you want to exit the app?").setPositiveButton("Yes") { _, _ ->
                 // If "Yes" is clicked, finish the activity to exit the app.
                 finish()
-            }
-            .setNegativeButton("No", null) // If "No" is clicked, do nothing.
+            }.setNegativeButton("No", null) // If "No" is clicked, do nothing.
             .show()
     }
 }
