@@ -50,6 +50,13 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val menuItemId = when (destination.id) {
+                R.id.homeFragment -> R.id.profileFragment
+                else -> destination.id
+            }
+            binding.bottomNavView.menu.findItem(menuItemId)?.isChecked = true
+        }
     }
 
     private fun setupMenuUsernameObserver() {
@@ -77,11 +84,14 @@ class MainActivity : AppCompatActivity() {
                         this, "Please add a user first!", Toast.LENGTH_SHORT
                     ).show()
                     else {
+                        val navOptions = NavOptions.Builder()
+                            .setLaunchSingleTop(true) // Don't add to stack if already at top
+                            .build()
                         sharedViewModel.isUserMenuActive = true
                         val bundle = Bundle().apply {
                             putString("username", sharedViewModel.username.value)
                         }
-                        navController.navigate(R.id.profileFragment, bundle)
+                        navController.navigate(R.id.profileFragment, bundle, navOptions)
                     }
                     drawerLayout.closeDrawer(GravityCompat.START)
                     true
@@ -102,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                             .setLaunchSingleTop(true).build()
 
                         navController.navigate(R.id.homeFragment, null, navOptions)
+                        binding.bottomNavView.menu.findItem(R.id.profileFragment)?.isChecked = true
                     }
                     drawerLayout.closeDrawer(GravityCompat.START)
                     true
@@ -117,6 +128,7 @@ class MainActivity : AppCompatActivity() {
                 this, "Please add a user first!", Toast.LENGTH_SHORT
             ).show()
             else {
+
                 var bundle: Bundle = if (sharedViewModel.isUserMenuActive) {
                     Bundle().apply {
                         putString("username", sharedViewModel.username.value)
@@ -126,7 +138,11 @@ class MainActivity : AppCompatActivity() {
                         putString("username", sharedViewModel.friendName.value)
                     }
                 }
-                navController.navigate(menuItem.itemId, bundle)
+                val navOptions = NavOptions.Builder()
+                    .setLaunchSingleTop(true) // Don't add to stack if already at top
+                    .build()
+                navController.navigate(menuItem.itemId, bundle, navOptions)
+                drawerLayout.closeDrawer(GravityCompat.START)
             }
             true
         }

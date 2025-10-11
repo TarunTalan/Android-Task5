@@ -10,11 +10,10 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentHomeBinding
 
-// import kotlin.getValue
-// import SharedViewModel // This should be part of the package name if in the same module
 
 class HomeFragment : Fragment() {
 
@@ -30,8 +29,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // This initial setup logic is correct
+        val navOptions =
+            NavOptions.Builder().setLaunchSingleTop(true) // Don't add to stack if already at top
+                .build()
         if (sharedViewModel.isInitialUserAdded) {
             binding.addUserButton.isVisible = false
             binding.searchFriendButton.isVisible = true
@@ -60,7 +60,12 @@ class HomeFragment : Fragment() {
                 val bundle = Bundle().apply {
                     putString("username", username)
                 }
-                findNavController().navigate(R.id.action_homeFragment_to_profileFragment, bundle)
+
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_profileFragment,
+                    bundle,
+                    navOptions
+                )
             }
         }
 
@@ -71,21 +76,21 @@ class HomeFragment : Fragment() {
                 sharedViewModel.issearchingFriend = true
                 sharedViewModel.friendName.value = friendUsername
                 Toast.makeText(
-                    requireContext(),
-                    "Searching for '$friendUsername'...",
-                    Toast.LENGTH_SHORT
+                    requireContext(), "Searching for '$friendUsername'...", Toast.LENGTH_SHORT
                 ).show()
                 binding.usernameEditText.text.clear()
                 val bundle = Bundle().apply {
                     putString("username", friendUsername)
                 }
-                findNavController().navigate(R.id.action_homeFragment_to_profileFragment, bundle)
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_profileFragment,
+                    bundle,
+                    navOptions
+                )
                 binding.usernameEditText.text.clear()
             } else {
                 Toast.makeText(
-                    requireContext(),
-                    "Please enter a friend's username",
-                    Toast.LENGTH_SHORT
+                    requireContext(), "Please enter a friend's username", Toast.LENGTH_SHORT
                 ).show()
             }
         }
